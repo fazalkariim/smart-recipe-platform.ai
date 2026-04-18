@@ -1,4 +1,4 @@
-# 🧠 Smart Recipe AI
+# 🧠 Flavora | Smart Recipe AI
 
 AI-powered recipe platform that helps users discover, generate, and manage recipes with smart pantry-based suggestions and personalized meal ideas.
 

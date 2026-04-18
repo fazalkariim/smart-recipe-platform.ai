@@ -1,9 +1,14 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
 
 export default function Home() {
   return (
-    <div>
-      <h1>fazal</h1>
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      <section className="pt-32 pb-20 px-4">
+        <Button variant="primary" size="xl" >
+        add to cart!
+      </Button>
+      </section>  
     </div>
   );
 }
