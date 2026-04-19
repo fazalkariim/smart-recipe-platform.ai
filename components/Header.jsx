@@ -1,19 +1,50 @@
-import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { Show, SignIn,SignedIn, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import { Button } from "@/components/ui/button";
 import React from 'react'
+import Link from 'next/link';
+import Image from 'next/image';
+import { Cookie, Refrigerator } from 'lucide-react';
+import UserDropdown from './UserDropdown';
+import checkUser from '@/lib/checkUser';
 
 
-const Header = () => {
+const Header = async () => {
+  const user = await checkUser()
+
   return (
     <header className='fixed top-0 w-full border-b border-stone-200 bg-stone-50/80 
     backdrop-blur-md z-50 supports-backdrop-filter:bg-stone-50/60:'>
         <nav className='container mx-auto px-4 h-16 flex items-center justify-between'>
-            Logo
-            <div>nav links</div>
+            <Link href={user ? "/dashboard" : "/"}>
+              <Image 
+              src="/orangee.png" 
+              alt='flavora'
+              width={60}
+              height={60}
+              className='w-16'
+              ></Image>
+            </Link>
+
+            <div className='hidden md:flex items-center space-x-8 text-sm font-medium text-stone-600'>
+                 <Link
+                 href="/recipes"
+                 className='hover:text-orange-600 transition-colors flex gap-1.5 items-center'>
+                   <Cookie className='w-4 h-4'>
+                   </Cookie>
+                    My Recipies
+                 </Link>
+                 <Link
+                 href="/pantry"
+                 className='hover:text-orange-600 transition-colors flex gap-1.5 items-center'>
+                   <Refrigerator className='w-4 h-4'>
+                   </Refrigerator>
+                    My Pantry
+                 </Link>
+            </div>
             <div className='flex items-center space-x-4'>
 
                 <Show when="signed-in">
-                  <UserButton />
+                  <UserDropdown/>
                 </Show>
 
                 <Show when="signed-out">
@@ -32,12 +63,7 @@ const Header = () => {
                   </SignUpButton>
                 </Show>
 
-                
-
             </div>
-
-         
-            
             </nav>
     </header>
   )
