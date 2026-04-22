@@ -14,7 +14,7 @@ const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 export async function scanPantryImage(formData){
     try {
-        const user = await checkUser();
+        const user = await checkUser(); 
 
         if(!user){
             throw new Error("User not Authenticated");
@@ -55,7 +55,7 @@ export async function scanPantryImage(formData){
         const base64Image = buffer.toString("base64");
 
         const model = genAI.getGenerativeModel({
-            model:"gemeni-2.5-flash-lite",
+                  model: "gemini-2.0-flash",
         }); 
 
         const prompt = `You are a professional chef and ingredient recognition expert. Analyze this image of a pantry/fridge and identify all visible food ingredients.
@@ -89,6 +89,24 @@ export async function scanPantryImage(formData){
 
         const response = await result.response;
         const text = response.text()
+
+//         const text = JSON.stringify([
+//   {
+//     name: "Tomato",
+//     quantity: "2 pieces",
+//     confidence: 0.95,
+//   },
+//   {
+//     name: "Milk",
+//     quantity: "1 bottle",
+//     confidence: 0.91,
+//   },
+//   {
+//     name: "Eggs",
+//     quantity: "6 pieces",
+//     confidence: 0.93,
+//   }
+// ]);
 
         let ingredients;
         try {
@@ -128,7 +146,7 @@ export async function saveToPantry(formData) {
             throw new Error("User not authenticated");
         }
 
-        const ingredientsJson = fetchData.get("ingredients");
+        const ingredientsJson = formData.get("ingredients");
         const ingredients = JSON.parse(ingredientsJson);
 
         if(!ingredients || ingredients.length === 0){
