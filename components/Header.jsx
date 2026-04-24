@@ -8,6 +8,8 @@ import UserDropdown from './UserDropdown';
 import checkUser from '@/lib/checkUser';
 import PricingModal from './PricingModal';
 import { Badge } from './ui/badge';
+import HowToCookModal from './HowtoCookModal';
+
 
 
 const Header = async () => {
@@ -46,6 +48,8 @@ const Header = async () => {
             <div className='flex items-center space-x-4'>
 
                 <Show when="signed-in">
+                   <HowToCookModal/>
+
 
                   {user && (
                   <PricingModal subscriptionTier={user.subscriptionTier}>
