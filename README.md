@@ -1,28 +1,36 @@
 # 🧠 Flavora | Smart Recipe AI
 
-AI-powered recipe platform that helps users discover, generate, and manage recipes with smart pantry-based suggestions and personalized meal ideas.
+Flavora is an AI-powered smart recipe platform that helps users discover, generate, and manage recipes with intelligent pantry-based suggestions and personalized meal ideas.
+
+It combines AI, modern UI, and smart food logic to make cooking easier, faster, and more creative.
 
 ---
 
-## 🚀 Features
-- AI-based recipe generation
-- Pantry-based suggestions
-- Smart meal recommendations
-- User-friendly UI (Next.js)
-- Fast and responsive design
+## ✨ Features
+
+- 🤖 AI-based recipe generation (Gemini powered)
+- 🥕 Pantry-based recipe suggestions
+- 🍽️ Smart meal recommendations
+- 🔍 Recipe search & discovery system
+- 💾 Save & manage favorite recipes
+- 📄 Detailed step-by-step cooking instructions
+- ⚡ Fast, responsive, and modern UI (Next.js)
 
 ---
 
 ## 🛠️ Tech Stack
-- Next.js
-- React
-- Node.js (if backend)
-- AI API integration
+
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Backend:**  API Routes
+- **AI Integration:** Gemini API
+- **Database:** (Add if using e.g. MongoDB / PostgreSQL)
+- **Authentication:** Clerk
+- **Image API:** Unsplash
 
 ---
 
-## ▶️ Getting Started
-
-```bash
+## 📦 Getting Started
 npm install
+
+# 4. Run development server
 npm run dev
